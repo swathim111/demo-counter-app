@@ -14,6 +14,14 @@ pipeline{
                 }
             }
         } 
+        stage('unit test'){
+            steps{
+                script{
+                    sh 'mvn clean install'
+                }
+            }
+        
     }
+   
 }
         
