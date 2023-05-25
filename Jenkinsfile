@@ -21,7 +21,14 @@ pipeline{
                 }
             }
         }
-        
+        stage('integration'){
+            steps{
+                script{
+                    sh 'mvn verify -DskipunitTest'
+                }
+            }
+        }
+           
     }
    
 }
