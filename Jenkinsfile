@@ -48,7 +48,7 @@ pipeline{
         stage('nexus'){
             steps{
                 script{
-        nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: '/var/jenkins_home/workspace/s1/target/uber.jar'
+        nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: 'target/Uber.jar'
 , type: 'jar']], credentialsId: 'nexus', groupId: 'com.example', nexusUrl: '34.125.9.240:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'repo1', version: '1.0.0'
     }
             }
