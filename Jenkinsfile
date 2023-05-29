@@ -35,7 +35,7 @@ pipeline{
     }
             }
        }
-        stage('build'){
+        stage('sonar'){
             steps{
                 script{
                     sh 'mvn clean package sonar:sonar'   
