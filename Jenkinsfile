@@ -38,8 +38,11 @@ pipeline{
         stage('sonar'){
             steps{
                 script{
+                    withSonarQubeEnv(credentialsId: 'sonar') {
+                    
                     sh 'mvn clean package sonar:sonar'   
     }
+                }
             }
         }
     }
