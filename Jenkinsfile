@@ -45,16 +45,23 @@ pipeline{
                 }
             }
         }
-        stage('nexus'){
-            steps{
-                script{
-        nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: 'target/Uber.jar'
+       # stage('nexus'){
+           # steps{
+               # script{
+        #nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: 'target/Uber.jar'
 , type: 'jar']], credentialsId: 'nexus', groupId: 'com.example', nexusUrl: '34.125.9.240:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'nexus', version: '1.0.0'
-    }
-            }
+   # }
+          #  }
     
    
-}
+#}
+        stage('image build'){
+            steps{
+                script{
+                    sh 'docker build -t image1 .
+                }
+            }
+        }
     }
 }
         
