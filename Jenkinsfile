@@ -17,7 +17,7 @@ pipeline{
         stage('unit test'){
             steps{
                 script{
-                    sh 'mvn clean install'
+                    sh 'mvn test'
                 }
             }
         }
@@ -28,8 +28,23 @@ pipeline{
                 }
             }
         }
-           
+       stage('build'){
+            steps{
+                script{
+                    sh 'mvn clean install'    
     }
+            }
+       }
+        stage('build'){
+            steps{
+                script{
+                    sh 'mvn clean package sonar:sonar'   
+    }
+            }
+        }
+    }
+    
+    
    
 }
         
